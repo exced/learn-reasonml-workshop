@@ -21,7 +21,7 @@ let rec length = lst =>
   };
 
 /* Write a function to add up the elements of a list by matching on it. */
-let rec sum = lst => failwith("For you to implement");
+let sum = List.fold_left((a, e) => a + e, 0);
 
 /*
   The signature for the append operator is

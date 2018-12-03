@@ -48,7 +48,11 @@ let cardValueToString = cardValue =>
   Write a function that computes the score of a card (aces should score 11
   and face cards should score 10).
  */
-let cardValueToScore = cardValue => failwith("For you to implement");
+let cardValueToScore =
+  fun
+  | Ace => 11
+  | Number(i) => i
+  | _ => 10;
 
 Test.runAll([
   (cardValueToScore(Ace) == 11, "card value to score"),

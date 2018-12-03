@@ -7,7 +7,10 @@ let rec largest = xs =>
 
 /* Let's write a function to find the smallest element: Hint: the opposite of
    [neg_infinity] is [infinity]. */
-let rec smallest = xs => failwith("For you to implement");
+let rec smallest =
+  fun
+  | [] => infinity
+  | [h, ...t] => min(h, smallest(t));
 
 Test.runAll([
   (smallest([]) == infinity, "smallest"),

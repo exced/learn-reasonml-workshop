@@ -71,12 +71,15 @@ let rec product = xs =>
 
  Let's write the common parts just once:
  */
-let rec every = (answer, combine, xs) => failwith("For you to implement");
+let rec every = (answer, combine) =>
+  fun
+  | [] => answer
+  | [h, ...t] => combine(h, every(answer, combine, t));
 
 /* Now let's rewrite sum and product in just one line each using every */
-let simplerSum = xs => failwith("For you to implement");
+let simplerSum = every(0, (+));
 
-let simplerProduct = xs => failwith("For you to implement");
+let simplerProduct = every(1, ( * ));
 
 Test.runAll([
   (simplerProduct([]) == 1, "simpler product"),

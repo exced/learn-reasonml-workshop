@@ -50,7 +50,10 @@ let () = assert (mapOption(i => 2 * i, Some(2)) == Some(4));
   and an int, and applies the function if the integer is not zero, and
   otherwise just returns 0.
  */
-let applyIfNonzero = (f, i) => failwith("For you to implement");
+let applyIfNonzero = f =>
+  fun
+  | 0 => 0
+  | x => f(x);
 
 Test.runAll([
   (applyIfNonzero(x => 10 / x, 0) == 0, "apply if non-zero"),

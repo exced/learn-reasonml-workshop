@@ -1,9 +1,5 @@
 /* Now let's write a function to multiply the elements of a list. */
-let rec product = xs =>
-  switch (xs) {
-  | [] => failwith("For you to implement")
-  | _for_you_to_implement => failwith("For you to implement")
-  };
+let product = List.fold_left((a, e) => a * e, 1);
 
 Test.runAll([
   (product([]) == 1, "product"),

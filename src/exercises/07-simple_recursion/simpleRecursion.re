@@ -18,10 +18,7 @@ let rec addEveryNumberUpTo = x => {
   Let's write a function to multiply every number up to x.
   Remember: [factorial 0] is 1
  */
-let rec factorial = x => {
-  assert (x >= 0);
-  failwith("For you to implement");
-};
+let rec factorial = x => x <= 0 ? 1 : x * factorial(x - 1);
 
 Test.runAll([
   (factorial(0) == 1, "factorial"),
